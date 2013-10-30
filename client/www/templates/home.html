@@ -43,7 +43,7 @@
 	&nbsp;
 	<b>{NET_BLOCK_QSIZE}</b> blocks
 	<tr><td nowrap="nowrap">Open Connections:<td><b>{OPEN_CONNS_TOTAL}</b> (<b>{OPEN_CONNS_OUT}</b> outgoing + <b>{OPEN_CONNS_IN}</b> incomming)
-	<tr><td>Extrenal IPs:<td><b>{ONE_EXTERNAL_IP}</b>
+	<tr><td>External IPs:<td><b>{ONE_EXTERNAL_IP}</b>
 	</table>
 <td valign="top">
 	<h2>Others</h2>
@@ -61,4 +61,30 @@
 <br>
 <input type="button" value="Show configuration JSON data" onclick="shwcfg()">
 </div>
-<div id="formcfg" style="display:none"><h2>Configuration</h2><table width="90%"><form method="post" action="cfg"><tr><td colspan="2">	<textarea name="configjson" style="width:100%" rows="6">{CONFIG_FILE}</textarea><tr><td align="center">	<i>Please note that some config params require a restart in order to be noticed.	<td align="right">	<input type="submit" name="apply" value="Apply">	<input type="submit" name="save" value="Apply & Save"></form></table></div><script>function shwcfg() {	showcfg.style.display='none'	formcfg.style.display='block'}</script><div style="text-align:right"><br><form method="post" action="cfg" onsubmit="return confirm('Are you sure that you want to shut down this node?');"><input type="hidden" name="shutdown" value="1"><input type="submit" value="Shutdown Node"></form></div>
+<div id="formcfg" style="display:none">
+<h2>Configuration</h2>
+<table width="90%">
+<form method="post" action="cfg">
+<tr><td colspan="2">
+	<textarea name="configjson" style="width:100%" rows="6">{CONFIG_FILE}</textarea>
+<tr><td align="center">
+	<i>Please note that some config params require a restart in order to be noticed.
+	<td align="right">
+	<input type="submit" name="apply" value="Apply">
+	<input type="submit" name="save" value="Apply & Save">
+</form>
+</table>
+</div>
+<script>
+function shwcfg() {
+	showcfg.style.display='none'
+	formcfg.style.display='block'
+}
+</script>
+<div style="text-align:right">
+<br>
+<form method="post" action="cfg" onsubmit="return confirm('Are you sure that you want to shut down this node?');">
+<input type="hidden" name="shutdown" value="1">
+<input type="submit" value="Shutdown Node">
+</form>
+</div>
